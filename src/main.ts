@@ -2,7 +2,7 @@ import "./css/style.css";
 import FullList from "./model/FullList.ts";
 import ListItem from "./model/ListItem.ts";
 import ListTemplate from "./templates/ListTemplates.ts";
-
+import taskComplSound from "./audio/taskComplete.wav";
 // Void function initApp that handles app initialising and app running
 const initApp = (): void => {
   // get the singletons of the full list and template from their respective objects
@@ -54,6 +54,14 @@ const initApp = (): void => {
     // then empty the HTML rendering the list
     templateInst.clear();
   });
+
+  // const playAudioBtn = document.getElementById(
+  //   "PlaySound"
+  // ) as HTMLButtonElement;
+  // playAudioBtn.addEventListener("click", (): void => {
+  //   let audio = new Audio(taskComplSound);
+  //   audio.play();
+  // });
 
   // so far only event listeners have been added but the list needs to be rendered
   // immediately upon webpage load. thus with no listeners we call the load

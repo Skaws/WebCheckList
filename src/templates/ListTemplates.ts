@@ -1,5 +1,6 @@
 import FullList from "../model/FullList";
 
+import taskComplSound from "../audio/taskComplete.wav";
 interface DOMList {
   // this class consists of variables:
   // ul - a var for holding a HTML list element
@@ -55,6 +56,11 @@ export default class ListTemplate implements DOMList {
       check.addEventListener("change", () => {
         // flip the boolean ListItem status, then save the list
         currItem.checked = !currItem.checked;
+        if (currItem.checked == true) {
+          let audio = new Audio(taskComplSound);
+          audio.volume = 0.1;
+          audio.play();
+        }
         fullList.save();
       });
 
